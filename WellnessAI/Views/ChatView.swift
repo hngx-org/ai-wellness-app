@@ -38,7 +38,9 @@ struct ChatView: View {
     }
 }
 
-#Preview {
-    ChatView(selectedTab: .constant(0))
-        .environmentObject(DashboardEnvironment())
+struct ChatView_Previews: PreviewProvider {
+    static var previews: some View {
+        ChatView(selectedTab: .constant(0))
+            .environmentObject(DashboardEnvironment())
+    }
 }

@@ -30,8 +30,10 @@ struct OverLay<Content>: View where Content:  View {
 }
 
 
-#Preview {
-    OverLay(isLoading: true) {
-        Text("")
+struct OverLay_Previews: PreviewProvider {
+    static var previews: some View {
+        OverLay(isLoading: true) {
+            Text("")
+        }
     }
 }

@@ -41,6 +41,9 @@ struct LogoutList: View {
     }
 }
 
-#Preview {
-    ProfileList()
+
+struct ProfileList_Previews: PreviewProvider {
+    static var previews: some View {
+            ProfileList()
+    }
 }
