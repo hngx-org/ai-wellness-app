@@ -16,11 +16,8 @@ struct DataSource {
     static let firstUser = User(name: "Wellness AI", avatar: "openai_logo")
     static var secondUser = User(name: "Duy Bui", avatar: "myAvatar", isCurrentUser: true)
     static let messages = [
-        Message(content: "Hi, I really love your templates and I would like to buy the chat template", user: DataSource.firstUser),
-        Message(content: "Thanks, nice to hear that, can I have your email please?", user: DataSource.secondUser),
-        Message(content: "That won't be a problem", user: DataSource.firstUser),
-        Message(content: "Oh actually, I have just purchased the chat template, so please check your email, you might see my order", user: DataSource.firstUser),
-        Message(content: "Great, wait me a sec, let me check", user: DataSource.secondUser),
-        Message(content: "Sure", user: DataSource.firstUser)
+        Message(content: "Hi, how may I help you today?", user: DataSource.firstUser),
+//        Message(content: "What do you think about headaches in the forehead?", user: DataSource.secondUser),
+//        Message(content: "AI: As an AI, I don't have personal thoughts or feelings. However, a headache in the forehead can be a common symptom and can be caused by various factors. Some possible causes include tension headaches, sinusitis, eyestrain, dehydration, or even stress. It's always a good idea to consult with a medical professional for a proper diagnosis and appropriate treatment if you are experiencing persistent or severe headaches.", user: DataSource.firstUser)
     ]
 }
