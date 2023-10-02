@@ -18,7 +18,6 @@ class NetworkingManager {
         guard let url = endpoint.url else{
             throw NetworkingError.invalidUrl
         }
-        
         let request = buildRequest(url: url, methodtype: endpoint.methodType)
         
         let (data, response) = try await URLSession.shared.data(for: request)
@@ -26,8 +25,31 @@ class NetworkingManager {
         
         guard let response = response as? HTTPURLResponse,
               (200...300) ~= response.statusCode else {
-            let statusCode = (response as! HTTPURLResponse).statusCode
-            throw NetworkingError.invalidStatusCode(statusCode: statusCode )
+          //            let statusCode = (response as! HTTPURLResponse).statusCode
+          //            throw NetworkingError.invalidStatusCode(statusCode: statusCode )
+          guard let response = response as? HTTPURLResponse,
+                (400...500) ~= response.statusCode else {
+              let statusCode = (response as! HTTPURLResponse).statusCode
+              throw NetworkingError.invalidStatusCode(statusCode: statusCode )
+          }
+          let decoder = JSONDecoder()
+          decoder.keyDecodingStrategy = .useDefaultKeys
+          let res = try decoder.decode(ErrorResponseModel.self , from: data)
+            throw NetworkingError.customError(error: res.message)
+        }
+        /// Adding cookies to storage
+        let cookieProperties: [HTTPCookiePropertyKey: Any] = [
+            .name: response.value(forHTTPHeaderField: "name") ?? "session",
+            .value: response.value(forHTTPHeaderField: "value") ?? "82946269-e696-4abb-884c-5b8995e9bc83.pSs_Fl9zlKdhAlKYr7laXmecbxA",
+            .domain: response.value(forHTTPHeaderField: "domain") ?? "spitfire-interractions.onrender.com",
+            .path: "/",
+            // Add other properties as needed
+        ]
+
+        if let cookie = HTTPCookie(properties: cookieProperties) {
+            // Add the cookie to shared storage
+            HTTPCookieStorage.shared.setCookie(cookie)
+            print("See cookies to store \(cookie)")
         }
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .useDefaultKeys
@@ -65,6 +87,7 @@ extension NetworkingManager {
         case invalidStatusCode(statusCode: Int)
         case invalidData
         case failedToDecode(error : Error)
+        case customError(error: String)
         
         var errorDescription: String?{
             switch self{
@@ -78,6 +101,8 @@ extension NetworkingManager {
                 return "Failed to decode response"
             case .custom(error: let error):
                 return "Something went wrong \(error.localizedDescription)"
+            case .customError(error: let error):
+                return error
             }
         }
     }
@@ -106,7 +131,21 @@ extension NetworkingManager {
         if let accessToken = UserDefaults.standard.string(forKey: "accessToken") {
             request.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
         }
+        /// Accessing cookies from storage
+        guard let cookies = HTTPCookieStorage.shared.cookies(for: url) else {
+            print("here with no cookies")
+            return request
+        }
+//        print("see cookies \(cookies)")
+        request.allHTTPHeaderFields = HTTPCookie.requestHeaderFields(with: cookies)
         
         return request
     }
 }
+
+// MARK: - ErrorResponseModel
+struct ErrorResponseModel: Codable {
+    let error: String?
+    let message: String
+}
+
