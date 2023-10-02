@@ -78,12 +78,12 @@ struct SignInUpPage: View {
                     
                    
                     Button {
-//                        Task {
-//                            isFirst ?
-//                            await lvm.loginUser():await lvm.loginUser()
-//                            env.path.append(.home)
-//                        }
-                        env.path.append(.home)
+                        Task {
+                            isFirst ?
+                            await lvm.loginUser():await lvm.loginUser()
+                            env.path.append(.chat)
+                        }
+//                        env.path.append(.chat)
                     } label: {
                         PrimaryButton(text: isFirst ? "Sign In":"Sign Up")
                     }
