@@ -163,14 +163,11 @@ struct TopSignUpLabel: View {
     }
 }
 
-
-
-
-#Preview {
-    SignInUpPage(isSignedIn: .constant(true))
+struct SignInUpPage_Previews: PreviewProvider {
+    static var previews: some View {
+        SignInUpPage(isSignedIn: .constant(true))
+    }
 }
-
-
 
 struct HideKeyboardOnTap: ViewModifier {
     func body(content: Content) -> some View {

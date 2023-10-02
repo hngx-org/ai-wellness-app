@@ -38,6 +38,8 @@ struct CustomTextField: View {
 }
 
 
-#Preview {
-    CustomTextField(field: .constant(""), entryName: "Username", placeHolder: "Your username", isSecure: false)
+struct CustomTextField_Previews: PreviewProvider {
+    static var previews: some View {
+        CustomTextField(field: .constant(""), entryName: "Username", placeHolder: "Your username", isSecure: false)
+    }
 }
