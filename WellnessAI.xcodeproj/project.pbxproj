@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8214B3FB2ACB331500349BD8 /* TheChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8214B3FA2ACB331500349BD8 /* TheChatView.swift */; };
+		8214B3FE2ACB335A00349BD8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8214B3FD2ACB335A00349BD8 /* User.swift */; };
+		8214B4002ACB336200349BD8 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8214B3FF2ACB336200349BD8 /* Message.swift */; };
+		8214B4022ACB33A100349BD8 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8214B4012ACB33A100349BD8 /* MessageView.swift */; };
+		8214B4042ACB33BB00349BD8 /* ContentMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8214B4032ACB33BB00349BD8 /* ContentMessageView.swift */; };
+		82ED8FE12ACB34AF00701231 /* ChatHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82ED8FE02ACB34AF00701231 /* ChatHelper.swift */; };
+		82ED8FE32ACB34CA00701231 /* KeyboardResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82ED8FE22ACB34CA00701231 /* KeyboardResponder.swift */; };
+		82ED8FE52ACB34DF00701231 /* View + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82ED8FE42ACB34DF00701231 /* View + Extension.swift */; };
+		82ED8FE82ACB438900701231 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82ED8FE72ACB438900701231 /* ChatViewModel.swift */; };
+		82ED8FEA2ACB43D300701231 /* ViewModel + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82ED8FE92ACB43D300701231 /* ViewModel + Extension.swift */; };
 		BEFF77382AC98826003C3659 /* WellnessAIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFF77372AC98826003C3659 /* WellnessAIApp.swift */; };
 		BEFF773A2AC98826003C3659 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFF77392AC98826003C3659 /* ContentView.swift */; };
 		BEFF773C2AC9882A003C3659 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEFF773B2AC9882A003C3659 /* Assets.xcassets */; };
@@ -26,6 +36,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8214B3FA2ACB331500349BD8 /* TheChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheChatView.swift; sourceTree = "<group>"; };
+		8214B3FD2ACB335A00349BD8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		8214B3FF2ACB336200349BD8 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		8214B4012ACB33A100349BD8 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
+		8214B4032ACB33BB00349BD8 /* ContentMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentMessageView.swift; sourceTree = "<group>"; };
+		82ED8FE02ACB34AF00701231 /* ChatHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatHelper.swift; sourceTree = "<group>"; };
+		82ED8FE22ACB34CA00701231 /* KeyboardResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardResponder.swift; sourceTree = "<group>"; };
+		82ED8FE42ACB34DF00701231 /* View + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View + Extension.swift"; sourceTree = "<group>"; };
+		82ED8FE72ACB438900701231 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
+		82ED8FE92ACB43D300701231 /* ViewModel + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewModel + Extension.swift"; sourceTree = "<group>"; };
 		BEFF77342AC98826003C3659 /* WellnessAI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WellnessAI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEFF77372AC98826003C3659 /* WellnessAIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WellnessAIApp.swift; sourceTree = "<group>"; };
 		BEFF77392AC98826003C3659 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -56,10 +76,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8214B3FC2ACB334E00349BD8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8214B3FD2ACB335A00349BD8 /* User.swift */,
+				8214B3FF2ACB336200349BD8 /* Message.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		82ED8FDF2ACB349800701231 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				82ED8FE02ACB34AF00701231 /* ChatHelper.swift */,
+				82ED8FE22ACB34CA00701231 /* KeyboardResponder.swift */,
+				82ED8FE42ACB34DF00701231 /* View + Extension.swift */,
+				82ED8FE92ACB43D300701231 /* ViewModel + Extension.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		82ED8FE62ACB437900701231 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				82ED8FE72ACB438900701231 /* ChatViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		BEFF772B2AC98826003C3659 = {
 			isa = PBXGroup;
 			children = (
-				BEFF77532AC9920F003C3659 /* SignInUpPage.swift */,
 				BEFF77362AC98826003C3659 /* WellnessAI */,
 				BEFF77352AC98826003C3659 /* Products */,
 			);
@@ -76,9 +123,13 @@
 		BEFF77362AC98826003C3659 /* WellnessAI */ = {
 			isa = PBXGroup;
 			children = (
+				82ED8FE62ACB437900701231 /* ViewModel */,
+				82ED8FDF2ACB349800701231 /* Helper */,
+				8214B3FC2ACB334E00349BD8 /* Models */,
 				BEFF77472AC98921003C3659 /* Network */,
 				BEFF77462AC98915003C3659 /* Components */,
 				BEFF77452AC9890A003C3659 /* Views */,
+				BEFF77532AC9920F003C3659 /* SignInUpPage.swift */,
 				BEFF77372AC98826003C3659 /* WellnessAIApp.swift */,
 				BEFF77392AC98826003C3659 /* ContentView.swift */,
 				BEFF773B2AC9882A003C3659 /* Assets.xcassets */,
@@ -102,6 +153,9 @@
 				BEFF775B2AC9A430003C3659 /* ChatView.swift */,
 				BEFF775D2AC9A484003C3659 /* PaymentView.swift */,
 				BEFF77612ACA9B2D003C3659 /* ProfileView.swift */,
+				8214B3FA2ACB331500349BD8 /* TheChatView.swift */,
+				8214B4012ACB33A100349BD8 /* MessageView.swift */,
+				8214B4032ACB33BB00349BD8 /* ContentMessageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -214,19 +268,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				BEFF77582AC9931C003C3659 /* PrimaryButton.swift in Sources */,
+				8214B3FB2ACB331500349BD8 /* TheChatView.swift in Sources */,
+				82ED8FE32ACB34CA00701231 /* KeyboardResponder.swift in Sources */,
 				BEFF775E2AC9A485003C3659 /* PaymentView.swift in Sources */,
+				82ED8FE52ACB34DF00701231 /* View + Extension.swift in Sources */,
+				8214B4002ACB336200349BD8 /* Message.swift in Sources */,
+				82ED8FE82ACB438900701231 /* ChatViewModel.swift in Sources */,
 				BEFF773A2AC98826003C3659 /* ContentView.swift in Sources */,
+				8214B3FE2ACB335A00349BD8 /* User.swift in Sources */,
 				BEFF77642ACA9FA0003C3659 /* ProfileList.swift in Sources */,
+				82ED8FEA2ACB43D300701231 /* ViewModel + Extension.swift in Sources */,
 				BEFF77542AC9920F003C3659 /* SignInUpPage.swift in Sources */,
 				BEFF774C2AC98ADC003C3659 /* OverLay.swift in Sources */,
 				BEFF775C2AC9A430003C3659 /* ChatView.swift in Sources */,
 				BEFF77382AC98826003C3659 /* WellnessAIApp.swift in Sources */,
 				BEFF77562AC9926D003C3659 /* CustomTextField.swift in Sources */,
+				8214B4042ACB33BB00349BD8 /* ContentMessageView.swift in Sources */,
+				8214B4022ACB33A100349BD8 /* MessageView.swift in Sources */,
 				BEFF77502AC98CF6003C3659 /* NetworkingManager.swift in Sources */,
 				BEFF77522AC98D1F003C3659 /* EndPoints.swift in Sources */,
 				BEFF775A2AC9937D003C3659 /* LoginViewModel.swift in Sources */,
 				BEFF77622ACA9B2D003C3659 /* ProfileView.swift in Sources */,
 				BEFF774E2AC98C5A003C3659 /* AppState.swift in Sources */,
+				82ED8FE12ACB34AF00701231 /* ChatHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

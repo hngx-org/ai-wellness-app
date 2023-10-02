@@ -17,7 +17,7 @@ enum DashboardPath: Hashable, Equatable {
     case payment
     case profile
 //    case lunchdetails
-//    case redeem
+    case chat
     
     
 }
@@ -31,6 +31,9 @@ extension DashboardPath: View {
             PaymentView()
         case .profile:
             ProfileView()
+        case .chat:
+            TheChatView()
+                .environmentObject(ChatHelper())
         }
     }
 }

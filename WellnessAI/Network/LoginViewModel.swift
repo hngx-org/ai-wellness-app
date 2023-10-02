@@ -9,7 +9,7 @@ import SwiftUI
 import Foundation
 
 class LoginVM: ObservableObject{
-    @Published var person = LoginPayload()
+    @Published var person = LoginPayload(email: "test@mail.com", password: "password")
     @Published private(set) var userInfo : LoginResponse?
     @Published private(set) var state : SubmissionState?
     @Published private(set) var error: NetworkingManager.NetworkingError?
@@ -23,14 +23,10 @@ class LoginVM: ObservableObject{
              let encoder = JSONEncoder()
              encoder.keyEncodingStrategy = .useDefaultKeys
              let data = try? encoder.encode(person)
-             let response = try await NetworkingManager.shared.request(endpoint: .signIn(loginData: data), type: logins.self)
-             self.userInfo = response.data
-             self.loginStatusCode = response.statusCode
-             print("Succesful \(String(describing: loginStatusCode))")
-
-             if let accessToken = self.userInfo?.accessToken {
-                 UserDefaults.standard.setValue(accessToken, forKey: "accessToken")
-             }
+             let response = try await NetworkingManager.shared.request(endpoint: .signIn(loginData: data), type: LoginResponse.self)
+//             self.userInfo = response.data
+//             self.loginStatusCode = response.statusCode
+             print("Succesful \(String(describing: response.message))")
              state = .successful
          }catch{
              print("UnSuccesful")
@@ -55,19 +51,29 @@ extension LoginVM {
     }
 }
 
-struct logins: Codable {
-    let statusCode: Int?
-    let data: LoginResponse?
-}
-
-///testing without codingKeys
-struct LoginResponse: Codable, Equatable{
-    let accessToken : String?
-    let email : String?
-    let orgId : Int?
-    let isAdmin : Int?
-}
 struct LoginPayload: Codable {
     var email: String = ""
     var password: String = ""
 }
+import Foundation
+
+// MARK: - LoginResponse
+struct LoginResponse: Codable {
+    let data: DataClass
+    let message: String
+}
+
+// MARK: - DataClass
+struct DataClass: Codable {
+    let createdAt: String
+    let credits: Int
+    let email, id, name, updatedAt: String
+
+    enum CodingKeys: String, CodingKey {
+        case createdAt = "created_at"
+        case credits, email, id, name
+        case updatedAt = "updated_at"
+    }
+}
+
+
