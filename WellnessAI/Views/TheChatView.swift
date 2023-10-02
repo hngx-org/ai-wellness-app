@@ -44,8 +44,10 @@ struct TheChatView: View {
     }
     
     func sendMessage() {
-        chatHelper.sendMessage(Message(content: typingMessage, user: DataSource.secondUser))
-        typingMessage = ""
+        if typingMessage != "" {
+            chatHelper.sendMessage(Message(content: typingMessage, user: DataSource.secondUser))
+            typingMessage = ""
+        }
     }
 }
 
