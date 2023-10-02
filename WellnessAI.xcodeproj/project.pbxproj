@@ -11,6 +11,18 @@
 		BEFF773A2AC98826003C3659 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFF77392AC98826003C3659 /* ContentView.swift */; };
 		BEFF773C2AC9882A003C3659 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEFF773B2AC9882A003C3659 /* Assets.xcassets */; };
 		BEFF773F2AC9882A003C3659 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEFF773E2AC9882A003C3659 /* Preview Assets.xcassets */; };
+		BEFF774C2AC98ADC003C3659 /* OverLay.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFF774B2AC98ADC003C3659 /* OverLay.swift */; };
+		BEFF774E2AC98C5A003C3659 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFF774D2AC98C59003C3659 /* AppState.swift */; };
+		BEFF77502AC98CF6003C3659 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFF774F2AC98CF6003C3659 /* NetworkingManager.swift */; };
+		BEFF77522AC98D1F003C3659 /* EndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFF77512AC98D1F003C3659 /* EndPoints.swift */; };
+		BEFF77542AC9920F003C3659 /* SignInUpPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFF77532AC9920F003C3659 /* SignInUpPage.swift */; };
+		BEFF77562AC9926D003C3659 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFF77552AC9926C003C3659 /* CustomTextField.swift */; };
+		BEFF77582AC9931C003C3659 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFF77572AC9931C003C3659 /* PrimaryButton.swift */; };
+		BEFF775A2AC9937D003C3659 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFF77592AC9937D003C3659 /* LoginViewModel.swift */; };
+		BEFF775C2AC9A430003C3659 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFF775B2AC9A430003C3659 /* ChatView.swift */; };
+		BEFF775E2AC9A485003C3659 /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFF775D2AC9A484003C3659 /* PaymentView.swift */; };
+		BEFF77622ACA9B2D003C3659 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFF77612ACA9B2D003C3659 /* ProfileView.swift */; };
+		BEFF77642ACA9FA0003C3659 /* ProfileList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFF77632ACA9FA0003C3659 /* ProfileList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +31,18 @@
 		BEFF77392AC98826003C3659 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BEFF773B2AC9882A003C3659 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BEFF773E2AC9882A003C3659 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BEFF774B2AC98ADC003C3659 /* OverLay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OverLay.swift; path = Views/OverLay.swift; sourceTree = "<group>"; };
+		BEFF774D2AC98C59003C3659 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppState.swift; path = AppState/AppState.swift; sourceTree = "<group>"; };
+		BEFF774F2AC98CF6003C3659 /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
+		BEFF77512AC98D1F003C3659 /* EndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoints.swift; sourceTree = "<group>"; };
+		BEFF77532AC9920F003C3659 /* SignInUpPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUpPage.swift; sourceTree = "<group>"; };
+		BEFF77552AC9926C003C3659 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		BEFF77572AC9931C003C3659 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		BEFF77592AC9937D003C3659 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		BEFF775B2AC9A430003C3659 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		BEFF775D2AC9A484003C3659 /* PaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
+		BEFF77612ACA9B2D003C3659 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		BEFF77632ACA9FA0003C3659 /* ProfileList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +59,7 @@
 		BEFF772B2AC98826003C3659 = {
 			isa = PBXGroup;
 			children = (
+				BEFF77532AC9920F003C3659 /* SignInUpPage.swift */,
 				BEFF77362AC98826003C3659 /* WellnessAI */,
 				BEFF77352AC98826003C3659 /* Products */,
 			);
@@ -51,6 +76,9 @@
 		BEFF77362AC98826003C3659 /* WellnessAI */ = {
 			isa = PBXGroup;
 			children = (
+				BEFF77472AC98921003C3659 /* Network */,
+				BEFF77462AC98915003C3659 /* Components */,
+				BEFF77452AC9890A003C3659 /* Views */,
 				BEFF77372AC98826003C3659 /* WellnessAIApp.swift */,
 				BEFF77392AC98826003C3659 /* ContentView.swift */,
 				BEFF773B2AC9882A003C3659 /* Assets.xcassets */,
@@ -65,6 +93,54 @@
 				BEFF773E2AC9882A003C3659 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		BEFF77452AC9890A003C3659 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BEFF774A2AC9896C003C3659 /* Base */,
+				BEFF775B2AC9A430003C3659 /* ChatView.swift */,
+				BEFF775D2AC9A484003C3659 /* PaymentView.swift */,
+				BEFF77612ACA9B2D003C3659 /* ProfileView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BEFF77462AC98915003C3659 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				BEFF77552AC9926C003C3659 /* CustomTextField.swift */,
+				BEFF77572AC9931C003C3659 /* PrimaryButton.swift */,
+				BEFF77632ACA9FA0003C3659 /* ProfileList.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		BEFF77472AC98921003C3659 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				BEFF77492AC98934003C3659 /* Base */,
+				BEFF77592AC9937D003C3659 /* LoginViewModel.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		BEFF77492AC98934003C3659 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				BEFF774F2AC98CF6003C3659 /* NetworkingManager.swift */,
+				BEFF77512AC98D1F003C3659 /* EndPoints.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		BEFF774A2AC9896C003C3659 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				BEFF774B2AC98ADC003C3659 /* OverLay.swift */,
+				BEFF774D2AC98C59003C3659 /* AppState.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +213,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEFF77582AC9931C003C3659 /* PrimaryButton.swift in Sources */,
+				BEFF775E2AC9A485003C3659 /* PaymentView.swift in Sources */,
 				BEFF773A2AC98826003C3659 /* ContentView.swift in Sources */,
+				BEFF77642ACA9FA0003C3659 /* ProfileList.swift in Sources */,
+				BEFF77542AC9920F003C3659 /* SignInUpPage.swift in Sources */,
+				BEFF774C2AC98ADC003C3659 /* OverLay.swift in Sources */,
+				BEFF775C2AC9A430003C3659 /* ChatView.swift in Sources */,
 				BEFF77382AC98826003C3659 /* WellnessAIApp.swift in Sources */,
+				BEFF77562AC9926D003C3659 /* CustomTextField.swift in Sources */,
+				BEFF77502AC98CF6003C3659 /* NetworkingManager.swift in Sources */,
+				BEFF77522AC98D1F003C3659 /* EndPoints.swift in Sources */,
+				BEFF775A2AC9937D003C3659 /* LoginViewModel.swift in Sources */,
+				BEFF77622ACA9B2D003C3659 /* ProfileView.swift in Sources */,
+				BEFF774E2AC98C5A003C3659 /* AppState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
