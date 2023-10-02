@@ -13,24 +13,24 @@ enum EndPoint{
     case people(page: Int)
     case signIn(loginData: Data?)
     case signUp(data: Data?)
-    case addBank(data: Data?)
+    case sendMessage(data: Data?)
 }
 
 
 extension EndPoint{
-    var host: String{"BaseUrl"}
+    var host: String{"spitfire-interractions.onrender.com"}
     
     var path: String{
         switch self{
         case .people,
                 .signIn:
-            return ""
+            return "/api/auth/login"
         case .detail(id: let id):
             return "\(id)"
         case .signUp:
             return ""
-        case .addBank:
-            return ""
+        case .sendMessage:
+            return "/api/chat/completions"
         }
     }
     
@@ -60,8 +60,8 @@ extension EndPoint{
             return .post(data: data)
         case .signUp(data: let data):
             return .post(data: data)
-        case .addBank(data: let data):
-            return .patch(data: data)
+        case .sendMessage(data: let data):
+            return .post(data: data)
         }
     }
     
