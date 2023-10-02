@@ -71,7 +71,7 @@ struct SignInUpPage: View {
                         CustomTextField(field: $lvm.person.email, entryName: "Email:", placeHolder: "Email", isSecure: false)
                             .padding(.bottom, 10)
                         CustomTextField(field:  $lvm.person.password, entryName: "Password:", placeHolder: "********",isSecure: true)
-                            .padding(.bottom, 40)
+                            .padding(.bottom, 10)
                         CustomTextField(field:  $lvm.person.password, entryName: "Confirm Password:", placeHolder: "********",isSecure: true)
                             .padding(.bottom, 40)
                     }
