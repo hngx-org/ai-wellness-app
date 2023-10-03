@@ -15,13 +15,13 @@ struct ChatView: View {
             HStack {
                 Spacer()
                 Button{
-                           env.path.append(.payment)
-                       }
-                       label: {
-                    Text("Suscribe To Premium")
-                        .font(.body.bold())
-                    .padding(.trailing,10)
+                    env.path.append(.payment)
                 }
+            label: {
+                Text("Suscribe To Premium")
+                    .font(.body.bold())
+                    .padding(.trailing,10)
+            }
             }
             Spacer()
         }

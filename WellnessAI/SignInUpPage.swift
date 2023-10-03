@@ -13,7 +13,7 @@ struct SignInUpPage: View {
     @State private var isSignUpActive = false
     @State private var hasSignedIn = false
     @Binding var isSignedIn: Bool
-    @State private var isFirst = false
+    @State private var isFirst = true
     @StateObject private var lvm = LoginVM()
     @StateObject var env = DashboardEnvironment()
     var body: some View {
@@ -116,6 +116,7 @@ struct SignInUpPage: View {
             .navigationDestination(for: DashboardPath.self) { $0
                     .environmentObject(env)
             }
+            
         }
     }
 }
