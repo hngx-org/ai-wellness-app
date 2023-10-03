@@ -22,6 +22,7 @@ class ChatViewModel: BaseViewModel, ObservableObject {
    
     @MainActor
     func send(_ message: String) async {
+        print("see the message being sent \(message)")
          do{
              state = .submitting
              let encoder = JSONEncoder()
@@ -40,7 +41,7 @@ class ChatViewModel: BaseViewModel, ObservableObject {
              } else{
                  self.error = .custom(error: error)
              }
-             print(self.error ?? .custom(error: error))
+             print("see unsuccessful error \(self.error ?? .custom(error: error))")
          }
          
      }

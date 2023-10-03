@@ -45,12 +45,19 @@ struct TheChatView: View {
                 Button {
                     if viewModel.responseMsg.userInput != "" {
                         Task {
-                            viewModel.responseMsg.history = transformMsgHistory()
+//                            viewModel.responseMsg.history = transformMsgHistory()
+                            print("See message on view \(transformMsgHistory())")
+                            print("See user input on view \(viewModel.responseMsg.userInput)")
                             sendMessage()
                             await viewModel.send(viewModel.responseMsg.userInput)
                             let messageReturned = viewModel.returnedMessage
                             print("see message returned \(messageReturned ?? "avd")")
-                            sendAIMessage((messageReturned ?? viewModel.error?.errorDescription) ?? "v")
+                            if let messageReturned = messageReturned {
+                                sendAIMessage(messageReturned)
+                                viewModel.responseMsg.userInput = ""
+                            } else {
+                                viewModel.responseMsg.userInput = ""
+                            }
                         }
                     }
                 } label: {
@@ -98,9 +105,9 @@ struct TheChatView: View {
         var list : [String] = []
         for msg in chatHelper.realTimeMessages {
             if msg.user.isCurrentUser {
-                list.append("user: \(msg.user.name)")
+                list.append("user: \(msg.content)")
             }else{
-                list.append("AI: \(msg.user.name)")
+                list.append("AI: \(msg.content)")
             }
         }
         return list
@@ -110,7 +117,7 @@ struct TheChatView: View {
         if viewModel.responseMsg.userInput != "" {
             chatHelper.sendMessage(Message(content: viewModel.responseMsg.userInput, user: DataSource.secondUser))
             viewModel.message.user_input = viewModel.responseMsg.userInput
-            viewModel.responseMsg.userInput = ""
+//            viewModel.responseMsg.userInput = ""
         }
     }
     

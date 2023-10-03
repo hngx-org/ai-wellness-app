@@ -49,7 +49,7 @@ class NetworkingManager {
         if let cookie = HTTPCookie(properties: cookieProperties) {
             // Add the cookie to shared storage
             HTTPCookieStorage.shared.setCookie(cookie)
-            print("See cookies to store \(cookie)")
+//            print("See cookies to store \(cookie)")
         }
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .useDefaultKeys

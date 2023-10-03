@@ -98,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				82ED8FE72ACB438900701231 /* ChatViewModel.swift */,
+				BEFF77592AC9937D003C3659 /* LoginViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -171,7 +172,6 @@
 			isa = PBXGroup;
 			children = (
 				BEFF77492AC98934003C3659 /* Base */,
-				BEFF77592AC9937D003C3659 /* LoginViewModel.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -420,6 +420,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WellnessAI/Preview Content\"";
+				DEVELOPMENT_TEAM = Q69GHDS557;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -449,6 +450,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"WellnessAI/Preview Content\"";
+				DEVELOPMENT_TEAM = Q69GHDS557;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
