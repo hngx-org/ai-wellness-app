@@ -13,7 +13,6 @@ class DashboardEnvironment: ObservableObject {
 }
 
 enum DashboardPath: Hashable, Equatable {
-    case home
     case payment
     case profile
 //    case lunchdetails
@@ -25,8 +24,6 @@ enum DashboardPath: Hashable, Equatable {
 extension DashboardPath: View {
     var body: some View {
         switch self {
-        case .home:
-            ChatView(selectedTab: .constant(0))
         case .payment:
             PaymentView()
         case .profile:

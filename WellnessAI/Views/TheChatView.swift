@@ -9,10 +9,9 @@ import SwiftUI
 
 struct TheChatView: View {
     @EnvironmentObject var env: DashboardEnvironment
-    @State var typingMessage: String = ""
     @EnvironmentObject var chatHelper: ChatHelper
     @ObservedObject private var keyboard = KeyboardResponder()
-    @StateObject private var viewModel = ChatViewModel()
+    @StateObject var viewModel = ChatViewModel()
     
     init() {
         UITableView.appearance().separatorStyle = .none
@@ -40,14 +39,14 @@ struct TheChatView: View {
             }
             .listStyle(.plain)
             HStack {
-                TextField("How can I help?...", text: $typingMessage)
+                TextField("How can I help?...", text: $viewModel.responseMsg.userInput)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .frame(minHeight: CGFloat(30))
                 Button {
-                    if typingMessage != "" {
+                    if viewModel.responseMsg.userInput != "" {
                         Task {
                             sendMessage()
-                            await viewModel.send(typingMessage)
+                            await viewModel.send(viewModel.responseMsg.userInput)
                             let messageReturned = viewModel.returnedMessage
                             print("see message returned \(messageReturned ?? "avd")")
                             sendAIMessage((messageReturned ?? viewModel.error?.errorDescription) ?? "v")
@@ -96,10 +95,10 @@ struct TheChatView: View {
     }
     
     func sendMessage() {
-        if typingMessage != "" {
-            chatHelper.sendMessage(Message(content: typingMessage, user: DataSource.secondUser))
-            viewModel.message.user_input = typingMessage
-            typingMessage = ""
+        if viewModel.responseMsg.userInput != "" {
+            chatHelper.sendMessage(Message(content: viewModel.responseMsg.userInput, user: DataSource.secondUser))
+            viewModel.message.user_input = viewModel.responseMsg.userInput
+            viewModel.responseMsg.userInput = ""
         }
     }
     

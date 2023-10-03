@@ -29,7 +29,6 @@
 		BEFF77562AC9926D003C3659 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFF77552AC9926C003C3659 /* CustomTextField.swift */; };
 		BEFF77582AC9931C003C3659 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFF77572AC9931C003C3659 /* PrimaryButton.swift */; };
 		BEFF775A2AC9937D003C3659 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFF77592AC9937D003C3659 /* LoginViewModel.swift */; };
-		BEFF775C2AC9A430003C3659 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFF775B2AC9A430003C3659 /* ChatView.swift */; };
 		BEFF775E2AC9A485003C3659 /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFF775D2AC9A484003C3659 /* PaymentView.swift */; };
 		BEFF77622ACA9B2D003C3659 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFF77612ACA9B2D003C3659 /* ProfileView.swift */; };
 		BEFF77642ACA9FA0003C3659 /* ProfileList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFF77632ACA9FA0003C3659 /* ProfileList.swift */; };
@@ -59,7 +58,6 @@
 		BEFF77552AC9926C003C3659 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		BEFF77572AC9931C003C3659 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		BEFF77592AC9937D003C3659 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
-		BEFF775B2AC9A430003C3659 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		BEFF775D2AC9A484003C3659 /* PaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
 		BEFF77612ACA9B2D003C3659 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		BEFF77632ACA9FA0003C3659 /* ProfileList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileList.swift; sourceTree = "<group>"; };
@@ -150,7 +148,6 @@
 			isa = PBXGroup;
 			children = (
 				BEFF774A2AC9896C003C3659 /* Base */,
-				BEFF775B2AC9A430003C3659 /* ChatView.swift */,
 				BEFF775D2AC9A484003C3659 /* PaymentView.swift */,
 				BEFF77612ACA9B2D003C3659 /* ProfileView.swift */,
 				8214B3FA2ACB331500349BD8 /* TheChatView.swift */,
@@ -280,7 +277,6 @@
 				82ED8FEA2ACB43D300701231 /* ViewModel + Extension.swift in Sources */,
 				BEFF77542AC9920F003C3659 /* SignInUpPage.swift in Sources */,
 				BEFF774C2AC98ADC003C3659 /* OverLay.swift in Sources */,
-				BEFF775C2AC9A430003C3659 /* ChatView.swift in Sources */,
 				BEFF77382AC98826003C3659 /* WellnessAIApp.swift in Sources */,
 				BEFF77562AC9926D003C3659 /* CustomTextField.swift in Sources */,
 				8214B4042ACB33BB00349BD8 /* ContentMessageView.swift in Sources */,

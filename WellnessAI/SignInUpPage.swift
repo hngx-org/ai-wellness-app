@@ -12,7 +12,6 @@ struct SignInUpPage: View {
     @State private var password: String = ""
     @State private var isSignUpActive = false
     @State private var hasSignedIn = false
-    @Binding var isSignedIn: Bool
     @State private var isFirst = true
     @StateObject private var lvm = LoginVM()
     @StateObject var env = DashboardEnvironment()
@@ -81,7 +80,9 @@ struct SignInUpPage: View {
                         Task {
                             isFirst ?
                             await lvm.loginUser():await lvm.loginUser()
-                            env.path.append(.chat)
+                            if lvm.state == .successful{
+                                env.path.append(.chat)
+                            }
                         }
 //                        env.path.append(.chat)
                     } label: {
@@ -166,7 +167,7 @@ struct TopSignUpLabel: View {
 
 struct SignInUpPage_Previews: PreviewProvider {
     static var previews: some View {
-        SignInUpPage(isSignedIn: .constant(true))
+        SignInUpPage()
     }
 }
 
