@@ -10,7 +10,7 @@ import SwiftUI
 struct MessageView : View {
     var currentMessage: Message
     var body: some View {
-        HStack(alignment: .bottom, spacing: 15) {
+        HStack(alignment: .top, spacing: 15) {
             if !currentMessage.user.isCurrentUser {
                 Image(currentMessage.user.avatar)
                 .resizable()
@@ -27,6 +27,6 @@ struct MessageView : View {
 
 struct MessageView_Previews: PreviewProvider {
     static var previews: some View {
-        MessageView(currentMessage: Message(content: "There are a lot of premium iOS templates on iosapptemplates.com", user: DataSource.secondUser))
+        MessageView(currentMessage: Message(content: "There are a lot of premium iOS templates on iosapptemplates.com", user: DataSource.firstUser))
     }
 }

@@ -45,6 +45,7 @@ struct TheChatView: View {
                 Button {
                     if viewModel.responseMsg.userInput != "" {
                         Task {
+                            viewModel.responseMsg.history = transformMsgHistory()
                             sendMessage()
                             await viewModel.send(viewModel.responseMsg.userInput)
                             let messageReturned = viewModel.returnedMessage
@@ -92,6 +93,17 @@ struct TheChatView: View {
         }
         .navigationBarBackButtonHidden()
         
+    }
+    func transformMsgHistory() ->[String]{
+        var list : [String] = []
+        for msg in chatHelper.realTimeMessages {
+            if msg.user.isCurrentUser {
+                list.append("user: \(msg.user.name)")
+            }else{
+                list.append("AI: \(msg.user.name)")
+            }
+        }
+        return list
     }
     
     func sendMessage() {

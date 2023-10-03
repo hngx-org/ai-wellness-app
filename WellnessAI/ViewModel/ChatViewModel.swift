@@ -8,6 +8,7 @@
 import Foundation
 struct ResponsePayload: Codable {
     var userInput: String = ""
+    var history : [String] = []
 }
 
 class ChatViewModel: BaseViewModel, ObservableObject {
