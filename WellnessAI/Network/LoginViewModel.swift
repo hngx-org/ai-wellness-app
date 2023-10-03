@@ -9,7 +9,7 @@ import SwiftUI
 import Foundation
 
 class LoginVM: ObservableObject{
-    @Published var person = LoginPayload(email: "test@mail.com", password: "password")
+    @Published var person = LoginPayload()
     @Published private(set) var userInfo : LoginResponse?
     @Published private(set) var state : SubmissionState?
     @Published private(set) var error: NetworkingManager.NetworkingError?
