@@ -14,10 +14,11 @@ struct SignInUpPage: View {
     @State private var hasSignedIn = false
     @State private var isFirst = true
     @StateObject private var lvm = LoginVM()
+    @StateObject private var signupViewModel = SignupViewModel()
     @StateObject var env = DashboardEnvironment()
     var body: some View {
         NavigationStack(path: $env.path) {
-            OverLay(isLoading: lvm.state == .submitting){
+            OverLay(isLoading: lvm.state == .submitting || signupViewModel.state == .submitting){
                 VStack {
                     
                     HStack(spacing: 0){
@@ -65,13 +66,13 @@ struct SignInUpPage: View {
                         CustomTextField(field:  $lvm.person.password, entryName: "Password:", placeHolder: "********",isSecure: true)
                             .padding(.bottom, 40)
                     } else {
-                        CustomTextField(field: $lvm.person.email, entryName: "Name:", placeHolder: "Name", isSecure: false)
+                        CustomTextField(field: $signupViewModel.person.name, entryName: "Name:", placeHolder: "Name", isSecure: false)
                             .padding(.bottom, 10)
-                        CustomTextField(field: $lvm.person.email, entryName: "Email:", placeHolder: "Email", isSecure: false)
+                        CustomTextField(field: $signupViewModel.person.email, entryName: "Email:", placeHolder: "Email", isSecure: false)
                             .padding(.bottom, 10)
-                        CustomTextField(field:  $lvm.person.password, entryName: "Password:", placeHolder: "********",isSecure: true)
+                        CustomTextField(field:  $signupViewModel.person.password, entryName: "Password:", placeHolder: "********",isSecure: true)
                             .padding(.bottom, 10)
-                        CustomTextField(field:  $lvm.person.password, entryName: "Confirm Password:", placeHolder: "********",isSecure: true)
+                        CustomTextField(field:  $signupViewModel.person.confirm_password, entryName: "Confirm Password:", placeHolder: "********",isSecure: true)
                             .padding(.bottom, 40)
                     }
                     
@@ -79,9 +80,12 @@ struct SignInUpPage: View {
                     Button {
                         Task {
                             isFirst ?
-                            await lvm.loginUser():await lvm.loginUser()
-                            if lvm.state == .successful{
+                            await lvm.loginUser() : await signupViewModel.createUser()
+                            if lvm.state == .successful {
                                 env.path.append(.chat)
+                            }
+                            if signupViewModel.state == .successful {
+                                await lvm.loginNewUser(email: signupViewModel.person.email, password: signupViewModel.person.password)
                             }
                         }
 //                        env.path.append(.chat)

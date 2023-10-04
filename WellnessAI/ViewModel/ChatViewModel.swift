@@ -6,10 +6,6 @@
 //
 
 import Foundation
-struct ResponsePayload: Codable {
-    var userInput: String = ""
-    var history : [String] = []
-}
 
 class ChatViewModel: BaseViewModel, ObservableObject {
     
@@ -46,11 +42,3 @@ class ChatViewModel: BaseViewModel, ObservableObject {
          
      }
  }
-
-struct SendMessagePayload: Codable {
-    var user_input: String = ""
-}
-
-struct MessageResponse: Codable {
-    let message: String?
-}
