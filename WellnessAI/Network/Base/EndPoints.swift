@@ -28,7 +28,7 @@ extension EndPoint{
         case .detail(id: let id):
             return "\(id)"
         case .signUp:
-            return ""
+            return "/api/auth/register"
         case .sendMessage:
             return "/api/chat/completions"
         }
