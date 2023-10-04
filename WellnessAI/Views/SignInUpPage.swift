@@ -59,7 +59,7 @@ struct SignInUpPage: View {
                             .padding(.bottom, 20)
                             .padding(.top,18)
                     }
-                   
+                    
                     if isFirst {
                         CustomTextField(field: $lvm.person.email, entryName: "Username:", placeHolder: "UserName", isSecure: false)
                             .padding(.bottom, 10)
@@ -76,19 +76,19 @@ struct SignInUpPage: View {
                             .padding(.bottom, 40)
                     }
                     
-                   
+                    
                     Button {
                         Task {
                             isFirst ?
                             await lvm.loginUser() : await signupViewModel.createUser()
-                            if lvm.state == .successful {
-                                env.path.append(.chat)
-                            }
                             if signupViewModel.state == .successful {
                                 await lvm.loginNewUser(email: signupViewModel.person.email, password: signupViewModel.person.password)
                             }
+                            if lvm.state == .successful {
+                                env.path.append(.chat)
+                            }
                         }
-//                        env.path.append(.chat)
+                        //                        env.path.append(.chat)
                     } label: {
                         PrimaryButton(text: isFirst ? "Sign In":"Sign Up")
                     }
@@ -104,11 +104,11 @@ struct SignInUpPage: View {
                                 case false:
                                     isFirst = true
                                 }
-                        }) {
-                            Text(isFirst ?"Create one now":"Go to login")
-                                .foregroundColor(Color("Primary"))
-                                .fontWeight(.bold)
-                        }
+                            }) {
+                                Text(isFirst ?"Create one now":"Go to login")
+                                    .foregroundColor(Color("Primary"))
+                                    .fontWeight(.bold)
+                            }
                     }
                     Spacer()
                 }
@@ -117,9 +117,10 @@ struct SignInUpPage: View {
             }
             .alert(isPresented: $lvm.hasError, error: lvm.error) {
                 
-        }
+            }
             .navigationDestination(for: DashboardPath.self) { $0
-                    .environmentObject(env)
+                .environmentObject(lvm)
+                .environmentObject(env)
             }
             
         }

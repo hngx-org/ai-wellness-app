@@ -10,16 +10,21 @@ import SwiftUI
 struct ProfileView: View {
     @State var isAlert: Bool = false
     @EnvironmentObject var env: DashboardEnvironment
+    @EnvironmentObject private var lvm : LoginVM
     var body: some View {
         VStack(spacing: 15) {
             Image("okAvatar")
                 .resizable().scaledToFit()
                 .frame(width: 100, height: 100)
-            Text("Name")
-                .font(.title.bold())
-            Text("email")
-                .tint(.black)
-                .font(.body)
+            if let name = lvm.userInfo?.data.name{
+                Text(name)
+                    .font(.title.bold())
+            }
+            if let email = lvm.userInfo?.data.email{
+                Text(email)
+                    .tint(.black)
+                    .font(.body)
+            }
             Divider()
             VStack(spacing: 30) {
                 Button{
@@ -62,6 +67,7 @@ struct ProfileView: View {
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
         ProfileView()
+            .environmentObject(LoginVM())
             .environmentObject(DashboardEnvironment())
     }
 }

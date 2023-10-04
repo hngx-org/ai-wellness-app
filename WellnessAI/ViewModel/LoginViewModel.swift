@@ -25,9 +25,10 @@ class LoginVM: BaseViewModel, ObservableObject{
              encoder.keyEncodingStrategy = .useDefaultKeys
              let data = try? encoder.encode(person)
              let response = try await NetworkingManager.shared.request(endpoint: .signIn(loginData: data), type: LoginResponse.self)
-//             self.userInfo = response.data
+             self.userInfo = response
+             print("this is the response: \(userInfo!.data.name ?? "No Name")")
 //             self.loginStatusCode = response.statusCode
-             print("Succesful \(String(describing: response.message))")
+//             print("Succesful \(String(describing: response.message))")
              state = .successful
          }catch{
              print("UnSuccesful")
@@ -51,7 +52,7 @@ class LoginVM: BaseViewModel, ObservableObject{
             encoder.keyEncodingStrategy = .useDefaultKeys
             let data = try? encoder.encode(person)
             let response = try await NetworkingManager.shared.request(endpoint: .signIn(loginData: data), type: LoginResponse.self)
-//             self.userInfo = response.data
+            self.userInfo = response
 //             self.loginStatusCode = response.statusCode
             print("Succesful \(String(describing: response.message))")
             state = .successful

@@ -17,7 +17,7 @@ struct LoginResponse: Codable {
 struct DataClass: Codable {
     let createdAt: String
     let credits: Int
-    let email, id, name, updatedAt: String
+    let email, id, name, updatedAt: String?
 
     enum CodingKeys: String, CodingKey {
         case createdAt = "created_at"
