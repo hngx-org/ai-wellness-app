@@ -18,111 +18,116 @@ struct SignInUpPage: View {
     @StateObject var env = DashboardEnvironment()
     var body: some View {
         NavigationStack(path: $env.path) {
-            OverLay(isLoading: lvm.state == .submitting || signupViewModel.state == .submitting){
-                VStack {
-                    
-                    HStack(spacing: 0){
-                        Text("Sign-In")
-                            .font(.title3.bold())
-                            .foregroundColor(isFirst ?.white:.black)
-                            .padding(.horizontal,10)
-                            .frame(maxWidth: .infinity)
-                            .frame(height: 35)
-                            .background(Color(isFirst ? "Primary": "white"))
-                            .cornerRadius(10)
-                            .onTapGesture {
-                                isFirst = true
-                            }
-                        Text("Sign-Up")
-                            .font(.title3.bold())
-                            .foregroundColor(!isFirst ?.white:.black)
-                            .padding(.horizontal,21)
-                            .frame(maxWidth: .infinity)
-                            .frame(height: 35)
-                            .background(Color(!isFirst ? "Primary": "white"))
-                            .cornerRadius(10)
-                            .onTapGesture {
-                                isFirst = false
-                            }
-                    }
-                    .frame(maxWidth: .infinity)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(Color("Primary"), lineWidth: 1)
-                    )
-                    if isFirst{
-                        TopSignInLabel()
-                            .padding(.bottom, 20)
-                            .padding(.top,18)
-                    } else{
-                        TopSignUpLabel()
-                            .padding(.bottom, 20)
-                            .padding(.top,18)
-                    }
-                    
-                    if isFirst {
-                        CustomTextField(field: $lvm.person.email, entryName: "Username:", placeHolder: "UserName", isSecure: false)
-                            .padding(.bottom, 10)
-                        CustomTextField(field:  $lvm.person.password, entryName: "Password:", placeHolder: "********",isSecure: true)
-                            .padding(.bottom, 40)
-                    } else {
-                        CustomTextField(field: $signupViewModel.person.name, entryName: "Name:", placeHolder: "Name", isSecure: false)
-                            .padding(.bottom, 10)
-                        CustomTextField(field: $signupViewModel.person.email, entryName: "Email:", placeHolder: "Email", isSecure: false)
-                            .padding(.bottom, 10)
-                        CustomTextField(field:  $signupViewModel.person.password, entryName: "Password:", placeHolder: "********",isSecure: true)
-                            .padding(.bottom, 10)
-                        CustomTextField(field:  $signupViewModel.person.confirm_password, entryName: "Confirm Password:", placeHolder: "********",isSecure: true)
-                            .padding(.bottom, 40)
-                    }
-                    
-                    
-                    Button {
-                        Task {
-                            isFirst ?
-                            await lvm.loginUser() : await signupViewModel.createUser()
-                            if signupViewModel.state == .successful {
-                                await lvm.loginNewUser(email: signupViewModel.person.email, password: signupViewModel.person.password)
-                            }
-                            if lvm.state == .successful {
-                                env.path.append(.chat)
-                            }
-                        }
-                        //                        env.path.append(.chat)
-                    } label: {
-                        PrimaryButton(text: isFirst ? "Sign In":"Sign Up")
-                    }
-                    Spacer()
-                    
-                    HStack {
-                        Text(isFirst ? "Don't have an account?":"Already have an account?")
-                        Button(
-                            action: {
-                                switch isFirst{
-                                case true:
-                                    isFirst = false
-                                case false:
+            ScrollView {
+                OverLay(isLoading: lvm.state == .submitting || signupViewModel.state == .submitting){
+                    VStack {
+                        Image("chat_logo")
+                            .resizable()
+                            .frame(width: 60, height: 60)
+                        Spacer()
+                        HStack(spacing: 0){
+                            Text("Sign-In")
+                                .font(.title3.bold())
+                                .foregroundColor(isFirst ?.white:.black)
+                                .padding(.horizontal,10)
+                                .frame(maxWidth: .infinity)
+                                .frame(height: 35)
+                                .background(Color(isFirst ? "Primary": "white"))
+                                .cornerRadius(10)
+                                .onTapGesture {
                                     isFirst = true
                                 }
-                            }) {
-                                Text(isFirst ?"Create one now":"Go to login")
-                                    .foregroundColor(Color("Primary"))
-                                    .fontWeight(.bold)
+                            Text("Sign-Up")
+                                .font(.title3.bold())
+                                .foregroundColor(!isFirst ?.white:.black)
+                                .padding(.horizontal,21)
+                                .frame(maxWidth: .infinity)
+                                .frame(height: 35)
+                                .background(Color(!isFirst ? "Primary": "white"))
+                                .cornerRadius(10)
+                                .onTapGesture {
+                                    isFirst = false
+                                }
+                        }
+                        .frame(maxWidth: .infinity)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color("Primary"), lineWidth: 1)
+                        )
+                        if isFirst{
+                            TopSignInLabel()
+                                .padding(.bottom, 20)
+                                .padding(.top,18)
+                        } else{
+                            TopSignUpLabel()
+                                .padding(.bottom, 20)
+                                .padding(.top,18)
+                        }
+                        
+                        if isFirst {
+                            CustomTextField(field: $lvm.person.email, entryName: "Username:", placeHolder: "UserName", isSecure: false)
+                                .padding(.bottom, 10)
+                            CustomTextField(field:  $lvm.person.password, entryName: "Password:", placeHolder: "********",isSecure: true)
+                                .padding(.bottom, 40)
+                        } else {
+                            CustomTextField(field: $signupViewModel.person.name, entryName: "Name:", placeHolder: "Name", isSecure: false)
+                                .padding(.bottom, 10)
+                            CustomTextField(field: $signupViewModel.person.email, entryName: "Email:", placeHolder: "Email", isSecure: false)
+                                .padding(.bottom, 10)
+                            CustomTextField(field:  $signupViewModel.person.password, entryName: "Password:", placeHolder: "********",isSecure: true)
+                                .padding(.bottom, 10)
+                            CustomTextField(field:  $signupViewModel.person.confirm_password, entryName: "Confirm Password:", placeHolder: "********",isSecure: true)
+                                .padding(.bottom, 40)
+                        }
+                        
+                        
+                        Button {
+                            Task {
+                                isFirst ?
+                                await lvm.loginUser() : await signupViewModel.createUser()
+                                if signupViewModel.state == .successful {
+                                    await lvm.loginNewUser(email: signupViewModel.person.email, password: signupViewModel.person.password)
+                                }
+                                if lvm.state == .successful {
+                                    env.path.append(.chat)
+                                }
                             }
+                            //                        env.path.append(.chat)
+                        } label: {
+                            PrimaryButton(text: isFirst ? "Sign In":"Sign Up")
+                        }
+                        Spacer()
+                        
+                        HStack {
+                            Text(isFirst ? "Don't have an account?":"Already have an account?")
+                            Button(
+                                action: {
+                                    switch isFirst{
+                                    case true:
+                                        isFirst = false
+                                    case false:
+                                        isFirst = true
+                                    }
+                                }) {
+                                    Text(isFirst ?"Create one now":"Go to login")
+                                        .foregroundColor(Color("Primary"))
+                                        .fontWeight(.bold)
+                                }
+                        }
+                        Spacer()
                     }
-                    Spacer()
+                    .padding()
+                    .modifier(HideKeyboardOnTap())
                 }
-                .padding()
-                .modifier(HideKeyboardOnTap())
+                .alert(isPresented: $lvm.hasError, error: lvm.error) {
+                    
+                }
+                .navigationDestination(for: DashboardPath.self) { $0
+                    .environmentObject(lvm)
+                    .environmentObject(env)
+                }
             }
-            .alert(isPresented: $lvm.hasError, error: lvm.error) {
-                
-            }
-            .navigationDestination(for: DashboardPath.self) { $0
-                .environmentObject(lvm)
-                .environmentObject(env)
-            }
-            
+            .scrollIndicators(.hidden)
         }
     }
 }
